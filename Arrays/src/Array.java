@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Array {
 
     public static int findMax(int[] arr){
@@ -106,20 +108,33 @@ public class Array {
         }
         return tempArr;
     }
-//    public static int removeDuplicates(int[] arr, int n){
-//        int[] tempArr = new int[n];
-//        int j=0;
-//        for(int i=0;i<n;i++){
-//            if(arr[i] != arr[i+i]){
-//                tempArr[j++] = arr[i];
-//            }
-//        }
-//        tempArr[j++] = arr[n-1];
-//        for(int i=0;i<j;i++){
-//            arr[i] =  tempArr[i];
-//        }
-//        return j;
-//    }
+    public static boolean isPalindrome(String word){
+        char[] charArr = word.toCharArray();
+        int start=0, end = charArr.length  -1;
+
+        while (start<end){
+            if(charArr[start] != charArr[end]){
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    public static int[] twoSum(int[] arr, int sum){
+        int[] tempArr = new int[2];
+
+        for(int i = 0; i< arr.length-1; i++){
+            for(int j = i+1; j<arr.length; j++){
+                if((arr[i] + arr[j]) == sum){
+                    tempArr[0] = i;
+                    tempArr[1] = j;
+                    return tempArr;
+                }
+            }
+        }
+        throw new ArithmeticException("No numbers add up to that sum of "+sum);
+    }
     public static void main(String[] args) {
         int[] arr = {1,0,8,0,4,7};
         int[] arr2 = {1,88,6,7,4,5,4,1};
@@ -142,5 +157,13 @@ public class Array {
         print(arr);
         int[] resizedArray = resizeArray(arr,(arr.length *2));
         print(resizedArray);
+        if(isPalindrome("Eversmile")){
+            System.out.println("Yey your string is a palindrome :)");
+        }else {
+            System.out.println("nah :(");
+        }
+        int[] a = {2,11,5,10,7,8};
+        int [] arrSum = twoSum(a,9);
+        System.out.println(Arrays.toString(arrSum));
     }
 }

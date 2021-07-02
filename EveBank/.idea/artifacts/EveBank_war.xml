@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EveBank:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>EveBank</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="EveBank-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="EveBank:war exploded" />
+    </root>
+  </artifact>
+</component>
